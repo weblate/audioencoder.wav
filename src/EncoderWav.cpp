@@ -211,10 +211,7 @@ bool Finish(void* ctx)
 void Free(void *ctx)
 {
   wav_context *context = (wav_context*)ctx;
-  if (context)
-  {
-    delete context;
-  }
+  delete context;
 }
 
 }
