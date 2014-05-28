@@ -29,7 +29,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 ADDON_STATUS ADDON_Create(void* hdl, void* props)
 {
-  return ADDON_STATUS_NEED_SETTINGS;
+  return ADDON_STATUS_OK;
 }
 
 //-- Stop ---------------------------------------------------------------------
@@ -54,7 +54,7 @@ void ADDON_Destroy()
 //-----------------------------------------------------------------------------
 bool ADDON_HasSettings()
 {
-  return true;
+  return false;
 }
 
 //-- GetStatus ---------------------------------------------------------------
