@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="audioencoder.wav"
+  version="1.0.0"
+  name="Wav Audio Encoder"
+  provider-name="jmarshall">
+  <requires>
+    <import addon="xbmc.audioencoder" version="1.0.0"/>
+  </requires>
+  <extension
+    point="xbmc.audioencoder"
+    extension=".wav"
+    library_linux="audioencoder.wav.so"
+    library_android="libaudioencoder.wav.so"
+    library_osx="audioencoder.wav.dylib"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Wav Audio Encoder</summary>
+    <description lang="en">Wav Audio Encoder</description>
+    <platform>all</platform>
+  </extension>
+</addon>
