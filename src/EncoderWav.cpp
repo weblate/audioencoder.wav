@@ -18,7 +18,7 @@
  *
  */
 
-#include "kodi/xbmc_audioenc_dll.h"
+#include "xbmc_audioenc_dll.h"
 #include <stdio.h>
 #include <string.h>
 
