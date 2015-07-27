@@ -14,3 +14,5 @@ set(WAV_SOURCES src/EncoderWav.cpp)
 set(DEPLIBS)
 
 build_addon(audioencoder.wav WAV DEPLIBS)
+
+include(CPack)
