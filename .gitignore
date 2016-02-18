@@ -1,0 +1,23 @@
+# build artifacts
+build/
+debian/changelog
+debian/files
+audioencoder.wav/addon.xml
+debian/kodi-audioencoder-wav-dbg.debhelper.log
+debian/kodi-audioencoder-wav-dbg.substvars
+debian/kodi-audioencoder-wav-dbg/
+debian/kodi-audioencoder-wav.debhelper.log
+debian/kodi-audioencoder-wav.postinst.debhelper
+debian/kodi-audioencoder-wav.postrm.debhelper
+debian/kodi-audioencoder-wav.substvars
+debian/kodi-audioencoder-wav/
+debian/tmp/
+obj-x86_64-linux-gnu/
+
+# clion
+.idea/
+
+# Eclipse/CDT
+.cproject
+.project
+.settings/
