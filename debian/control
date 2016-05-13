@@ -1,22 +1,22 @@
-Source: xbmc-audioencoder-wav
+Source: kodi-audioencoder-wav
 Priority: extra
-Maintainer: wsnipex <wsnipex@xbmc.org>
-Build-Depends: debhelper (>= 8.0.0), cmake, xbmc-addon-dev
-Standards-Version: 3.9.2
+Maintainer: wsnipex <wsnipex@kodi.org>
+Build-Depends: debhelper (>= 8.0.0), cmake, kodi-addon-dev, kodi-audio-dev
+Standards-Version: 3.9.6
 Section: libs
-Homepage: http://xbmc.org
+Homepage: http://kodi.org
 
-Package: xbmc-audioencoder-wav
+Package: kodi-audioencoder-wav
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: WAV audio encoder for XBMC
- WAV audio encoder for XBMC
+Description: WAV audio encoder for Kodi
+ WAV audio encoder for Kodi
 
-Package: xbmc-audioencoder-wav-dbg
+Package: kodi-audioencoder-wav-dbg
 Section: debug
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: debug symbols for WAV audio encoder for XBMC
- debug symbols for WAV audio encoder for XBMC
+Description: debug symbols for WAV audio encoder for Kodi
+ debug symbols for WAV audio encoder for Kodi
 
