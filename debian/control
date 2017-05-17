@@ -1,7 +1,7 @@
 Source: kodi-audioencoder-wav
 Priority: extra
 Maintainer: wsnipex <wsnipex@kodi.org>
-Build-Depends: debhelper (>= 8.0.0), cmake, kodi-addon-dev, kodi-audio-dev
+Build-Depends: debhelper (>= 8.0.0), cmake, kodi-addon-dev
 Standards-Version: 3.9.6
 Section: libs
 Homepage: http://kodi.org
