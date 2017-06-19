@@ -11,7 +11,7 @@
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Wav Audio Encoder</summary>
-    <description lang="en">Wav Audio Encoder</description>
+    <description lang="en">WAV (Waveform Audio Format) is an uncompressed sound format.</description>
     <platform>@PLATFORM@</platform>
   </extension>
 </addon>
