@@ -42,7 +42,7 @@ typedef struct
 }
 WAVHDR;
 
-class CEncoderWav : public kodi::addon::CInstanceAudioEncoder
+class ATTRIBUTE_HIDDEN CEncoderWav : public kodi::addon::CInstanceAudioEncoder
 {
 public:
   CEncoderWav(KODI_HANDLE instance);
@@ -123,7 +123,7 @@ bool CEncoderWav::Finish()
 
 //------------------------------------------------------------------------------
 
-class CMyAddon : public kodi::addon::CAddonBase
+class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
