@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="audioencoder.wav"
-  version="2.0.1"
+  version="2.0.2"
   name="Wav Audio Encoder"
   provider-name="jmarshall">
   <requires>@ADDON_DEPENDS@</requires>
@@ -10,7 +10,7 @@
     extension=".wav"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Wav Audio Encoder</summary>
+    <summary lang="en">Waveform Audio File Format Encoder</summary>
     <description lang="en">WAV (Waveform Audio Format) is an uncompressed sound format.</description>
     <platform>@PLATFORM@</platform>
   </extension>
