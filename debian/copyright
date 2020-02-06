@@ -3,6 +3,7 @@ Upstream-Name: audioencoder.wav
 
 Files: *
 Copyright: Jonathan Marshall <jmarshall@xbmc.org>
+           2013-2020 Team Kodi
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -23,6 +24,7 @@ License: GPL-2+
 
 Files: debian/*
            2013 wsnipex <wsnipex@a1.net>
+           2013-2020 Team Kodi
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
