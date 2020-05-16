@@ -32,7 +32,7 @@ WAVHDR;
 class ATTRIBUTE_HIDDEN CEncoderWav : public kodi::addon::CInstanceAudioEncoder
 {
 public:
-  CEncoderWav(KODI_HANDLE instance);
+  CEncoderWav(KODI_HANDLE instance, const std::string& version);
 
   bool Start(int inChannels,
              int inRate,
@@ -54,8 +54,8 @@ private:
   uint32_t m_audiosize;
 };
 
-CEncoderWav::CEncoderWav(KODI_HANDLE instance)
-  : CInstanceAudioEncoder(instance)
+CEncoderWav::CEncoderWav(KODI_HANDLE instance, const std::string& version)
+  : CInstanceAudioEncoder(instance, version)
 {
   memset(&m_wav, 0, sizeof(m_wav));
 }
@@ -114,12 +114,12 @@ class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
-  ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override;
+  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override;
 };
 
-ADDON_STATUS CMyAddon::CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance)
+ADDON_STATUS CMyAddon::CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance)
 {
-  addonInstance = new CEncoderWav(instance);
+  addonInstance = new CEncoderWav(instance, version);
   return ADDON_STATUS_OK;
 }
 
