@@ -14,9 +14,9 @@
 // structure for WAV
 typedef struct
 {
-  uint8_t  riff[4];         /* must be "RIFF"    */
-  uint32_t len;             /* #bytes + 44 - 8   */
-  uint8_t  cWavFmt[8];      /* must be "WAVEfmt " */
+  uint8_t riff[4]; /* must be "RIFF"    */
+  uint32_t len; /* #bytes + 44 - 8   */
+  uint8_t cWavFmt[8]; /* must be "WAVEfmt " */
   uint32_t dwHdrLen;
   uint16_t wFormat;
   uint16_t wNumChannels;
@@ -24,10 +24,9 @@ typedef struct
   uint32_t dwBytesPerSec;
   uint16_t wBlockAlign;
   uint16_t wBitsPerSample;
-  uint8_t  cData[4];        /* must be "data"   */
-  uint32_t dwDataLen;       /* #bytes           */
-}
-WAVHDR;
+  uint8_t cData[4]; /* must be "data"   */
+  uint32_t dwDataLen; /* #bytes           */
+} WAVHDR;
 
 class ATTRIBUTE_HIDDEN CEncoderWav : public kodi::addon::CInstanceAudioEncoder
 {
@@ -60,11 +59,18 @@ CEncoderWav::CEncoderWav(KODI_HANDLE instance, const std::string& version)
   memset(&m_wav, 0, sizeof(m_wav));
 }
 
-bool CEncoderWav::Start(int inChannels, int inRate, int inBits,
-                        const std::string& title, const std::string& artist,
-                        const std::string& albumartist, const std::string& album,
-                        const std::string& year, const std::string& track, const std::string& genre,
-                        const std::string& comment, int trackLength)
+bool CEncoderWav::Start(int inChannels,
+                        int inRate,
+                        int inBits,
+                        const std::string& title,
+                        const std::string& artist,
+                        const std::string& albumartist,
+                        const std::string& album,
+                        const std::string& year,
+                        const std::string& track,
+                        const std::string& genre,
+                        const std::string& comment,
+                        int trackLength)
 {
   // we accept only 2ch / 16 bit atm
   if (inChannels != 2 || inBits != 16)
@@ -114,10 +120,18 @@ class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
-  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override;
+  ADDON_STATUS CreateInstance(int instanceType,
+                              const std::string& instanceID,
+                              KODI_HANDLE instance,
+                              const std::string& version,
+                              KODI_HANDLE& addonInstance) override;
 };
 
-ADDON_STATUS CMyAddon::CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance)
+ADDON_STATUS CMyAddon::CreateInstance(int instanceType,
+                                      const std::string& instanceID,
+                                      KODI_HANDLE instance,
+                                      const std::string& version,
+                                      KODI_HANDLE& addonInstance)
 {
   addonInstance = new CEncoderWav(instance, version);
   return ADDON_STATUS_OK;
