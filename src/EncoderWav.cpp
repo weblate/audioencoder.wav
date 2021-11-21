@@ -28,29 +28,18 @@ typedef struct
   uint32_t dwDataLen; /* #bytes           */
 } WAVHDR;
 
-class ATTRIBUTE_HIDDEN CEncoderWav : public kodi::addon::CInstanceAudioEncoder
+class ATTR_DLL_LOCAL CEncoderWav : public kodi::addon::CInstanceAudioEncoder
 {
 public:
   CEncoderWav(KODI_HANDLE instance, const std::string& version);
 
-  bool Start(int inChannels,
-             int inRate,
-             int inBits,
-             const std::string& title,
-             const std::string& artist,
-             const std::string& albumartist,
-             const std::string& album,
-             const std::string& year,
-             const std::string& track,
-             const std::string& genre,
-             const std::string& comment,
-             int trackLength) override;
-  int Encode(int numBytesRead, const uint8_t* stream) override;
+  bool Start(const kodi::addon::AudioEncoderInfoTag& tag) override;
+  ssize_t Encode(const uint8_t* stream, size_t numBytesRead) override;
   bool Finish() override;
 
 private:
   WAVHDR m_wav;
-  uint32_t m_audiosize;
+  size_t m_audiosize;
 };
 
 CEncoderWav::CEncoderWav(KODI_HANDLE instance, const std::string& version)
@@ -59,21 +48,10 @@ CEncoderWav::CEncoderWav(KODI_HANDLE instance, const std::string& version)
   memset(&m_wav, 0, sizeof(m_wav));
 }
 
-bool CEncoderWav::Start(int inChannels,
-                        int inRate,
-                        int inBits,
-                        const std::string& title,
-                        const std::string& artist,
-                        const std::string& albumartist,
-                        const std::string& album,
-                        const std::string& year,
-                        const std::string& track,
-                        const std::string& genre,
-                        const std::string& comment,
-                        int trackLength)
+bool CEncoderWav::Start(const kodi::addon::AudioEncoderInfoTag& tag)
 {
   // we accept only 2ch / 16 bit atm
-  if (inChannels != 2 || inBits != 16)
+  if (tag.GetChannels() != 2 || tag.GetBitsPerSample() != 16)
     return false;
 
   // setup and write out our wav header
@@ -83,16 +61,16 @@ bool CEncoderWav::Start(int inChannels,
   m_wav.wFormat = WAVE_FORMAT_PCM;
   m_wav.wBlockAlign = 4;
   memcpy(m_wav.cData, "data", 4);
-  m_wav.wNumChannels = inChannels;
-  m_wav.dwSampleRate = inRate;
-  m_wav.wBitsPerSample = inBits;
-  m_wav.dwBytesPerSec = inRate * inChannels * (inBits >> 3);
+  m_wav.wNumChannels = tag.GetChannels();
+  m_wav.dwSampleRate = tag.GetSamplerate();
+  m_wav.wBitsPerSample = tag.GetBitsPerSample();
+  m_wav.dwBytesPerSec = tag.GetSamplerate() * tag.GetChannels() * (tag.GetBitsPerSample() >> 3);
 
   Write((uint8_t*)&m_wav, sizeof(m_wav));
   return true;
 }
 
-int CEncoderWav::Encode(int numBytesRead, const uint8_t* stream)
+ssize_t CEncoderWav::Encode(const uint8_t* stream, size_t numBytesRead)
 {
   // write the audio directly out to the file is all we need do here
   Write(stream, numBytesRead);
@@ -106,7 +84,7 @@ bool CEncoderWav::Finish()
   m_wav.len = m_audiosize + sizeof(m_wav) - 8;
   m_wav.dwDataLen = m_audiosize;
 
-  if (Seek(0, 0) == 0)
+  if (Seek(0, SEEK_SET) == 0)
   {
     Write((uint8_t*)&m_wav, sizeof(m_wav));
     return true;
@@ -116,7 +94,7 @@ bool CEncoderWav::Finish()
 
 //------------------------------------------------------------------------------
 
-class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
+class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
