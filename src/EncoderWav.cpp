@@ -31,7 +31,7 @@ typedef struct
 class ATTR_DLL_LOCAL CEncoderWav : public kodi::addon::CInstanceAudioEncoder
 {
 public:
-  CEncoderWav(KODI_HANDLE instance, const std::string& version);
+  CEncoderWav(const kodi::addon::IInstanceInfo& instance);
 
   bool Start(const kodi::addon::AudioEncoderInfoTag& tag) override;
   ssize_t Encode(const uint8_t* stream, size_t numBytesRead) override;
@@ -42,8 +42,8 @@ private:
   size_t m_audiosize;
 };
 
-CEncoderWav::CEncoderWav(KODI_HANDLE instance, const std::string& version)
-  : CInstanceAudioEncoder(instance, version)
+CEncoderWav::CEncoderWav(const kodi::addon::IInstanceInfo& instance)
+  : CInstanceAudioEncoder(instance)
 {
   memset(&m_wav, 0, sizeof(m_wav));
 }
@@ -98,20 +98,14 @@ class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
-  ADDON_STATUS CreateInstance(int instanceType,
-                              const std::string& instanceID,
-                              KODI_HANDLE instance,
-                              const std::string& version,
-                              KODI_HANDLE& addonInstance) override;
+  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
+                              KODI_ADDON_INSTANCE_HDL& hdl) override;
 };
 
-ADDON_STATUS CMyAddon::CreateInstance(int instanceType,
-                                      const std::string& instanceID,
-                                      KODI_HANDLE instance,
-                                      const std::string& version,
-                                      KODI_HANDLE& addonInstance)
+ADDON_STATUS CMyAddon::CreateInstance(const kodi::addon::IInstanceInfo& instance,
+                                      KODI_ADDON_INSTANCE_HDL& hdl)
 {
-  addonInstance = new CEncoderWav(instance, version);
+  hdl = new CEncoderWav(instance);
   return ADDON_STATUS_OK;
 }
 
