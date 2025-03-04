@@ -27,6 +27,7 @@
     <summary lang="fi_FI">Waveform-äänitiedostojen dekooderi</summary>
     <summary lang="fr_FR">Encodeur de fichier WAV</summary>
     <summary lang="hr_HR">Waveform format zvučnog enkôdera</summary>
+    <summary lang="is_IS">Waveform hljóðskrársniðskóðari</summary>
     <summary lang="it_IT">Codificatore di file audio wave</summary>
     <summary lang="ko_KR">Waveform 오디오 파일 형식 인코더</summary>
     <summary lang="pl_PL">Koder formatu pliku dźwiękowego Waveform</summary>
@@ -45,6 +46,7 @@
     <description lang="fi_FI">WAV (Waveform Audio Format) on pakkaamaton äänimuoto.</description>
     <description lang="fr_FR">Le format audio WAV (Waveform Audio Format) est non-compressé.</description>
     <description lang="hr_HR">WAV (Waveform zvučni format) ne nekompresirani zvučni format.</description>
+    <description lang="is_IS">WAV (Waveform Audio Format) er óþjappað hljóðsnið.</description>
     <description lang="it_IT">WAV (Waveform Audio Format) è un formato audio non compresso.</description>
     <description lang="ko_KR">WAV(Waveform Audio Format)는 압축되지 않은 사운드 형식입니다.</description>
     <description lang="pl_PL">WAV (Waveform Audio Format) to nieskompresowany format dźwięku.</description>
