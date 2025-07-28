@@ -34,6 +34,7 @@
     <summary lang="pt_BR">Codificador de Formato de Arquivo de Áudio em Waveform</summary>
     <summary lang="pt_PT">Codificador audio em formato de ficheiro de onda</summary>
     <summary lang="ru_RU">Кодировщик аудиофайлов Waveform (WAV)</summary>
+    <summary lang="sv_SE">Waveform Audio File Format-kodare</summary>
     <summary lang="zh_CN">Waveform 音频文件格式编码器</summary>
     <description lang="af_ZA">WAV (Waveform Audio Format) is &apos;n onsaamgepersde oudio formaat.</description>
     <description lang="ca_ES">WAV (Waveform Audio Format) és un format de so sense comprimir.</description>
@@ -53,6 +54,7 @@
     <description lang="pt_BR">WAV (Waveform Audio Format) é um formato de som não compactado.</description>
     <description lang="pt_PT">WAV (forma de onda áudio) é um formato de som sem compressão.</description>
     <description lang="ru_RU">WAV (Waveform Audio Format) - это формат аудиофайла с несжатым звуковым потоком.</description>
+    <description lang="sv_SE">WAV (Waveform Audio Format) är ett okomprimerat ljudformat.</description>
     <description lang="zh_CN">WAV（Waveform 音频格式）是一种未压缩的声音格式。</description>
   </extension>
 </addon>
